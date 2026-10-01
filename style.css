@@ -1,0 +1,213 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #0b0b0b;
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    padding: 20px;
+}
+
+/* head */
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*  PANAMERA EDITION  */
+.edition-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 18px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+    background: rgba(212, 175, 55, 0.08);
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.15);
+}
+
+.gold-shine {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 5px;
+    background: linear-gradient(135deg, #ffffff 0%, #f39c12 50%, #d4af37 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 12px rgba(212, 175, 55, 0.4);
+    text-transform: uppercase;
+}
+
+/* A pulsating glowing dot near Panamera Edition */
+.glowing-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #f39c12;
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 0 0 8px #f39c12, 0 0 15px #f39c12, 0 0 25px #d4af37;
+    animation: pulse-glow 2s infinite alternate;
+}
+
+@keyframes pulse-glow {
+    0% {
+        opacity: 0.4;
+        transform: scale(0.8);
+        box-shadow: 0 0 4px #f39c12, 0 0 8px #f39c12;
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1.2);
+        box-shadow: 0 0 12px #f39c12, 0 0 20px #f39c12, 0 0 30px #d4af37;
+    }
+}
+
+/* gradient head PORSCHE DYNAMIC GALLERY */
+.brand-title {
+    font-weight: 800;
+    font-size: 2rem;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    background: linear-gradient(135deg, #ffffff 20%, #f39c12 70%, #d4af37 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 12px rgba(212, 175, 55, 0.35));
+}
+
+.model-subtitle {
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    color: #888888;
+    margin-top: 10px;
+    text-transform: uppercase;
+}
+
+/* slide container */
+.container {
+    display: flex;
+    width: 90vw;
+    max-width: 1200px;
+    height: 65vh;
+    max-height: 600px;
+    gap: 14px;
+}
+
+/* slide card */
+.slide {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+    border-radius: 16px;
+    cursor: pointer;
+    flex: 0.5;
+    transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top,
+            rgba(0, 0, 0, 0.95) 0%,
+            rgba(0, 0, 0, 0.3) 50%,
+            rgba(0, 0, 0, 0.1) 100%);
+    transition: opacity 0.4s ease;
+}
+
+.slide.active {
+    flex: 5;
+    border-color: rgba(212, 175, 55, 0.5);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+}
+
+.slide-content {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    right: 30px;
+    color: #fff;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.4s ease 0.2s;
+    pointer-events: none;
+}
+
+.slide.active .slide-content {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.badge {
+    display: inline-block;
+    background: rgba(212, 175, 55, 0.2);
+    border: 1px solid #d4af37;
+    color: #d4af37;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.slide-content h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+}
+
+.slide-content p {
+    font-size: 0.9rem;
+    color: #ccc;
+    max-width: 480px;
+    line-height: 1.4;
+    margin-bottom: 15px;
+}
+
+.specs {
+    display: flex;
+    gap: 25px;
+    font-size: 0.85rem;
+    color: #aaa;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    padding-top: 12px;
+}
+
+.specs span b {
+    color: #fff;
+    display: block;
+    font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        height: 80vh;
+    }
+
+    .brand-title {
+        font-size: 1.2rem;
+        letter-spacing: 4px;
+    }
+}
